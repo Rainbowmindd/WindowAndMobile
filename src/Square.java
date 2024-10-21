@@ -21,8 +21,7 @@ public class Square extends Figure implements Printing{
 
     @Override
     public void print() {
-        System.out.println("Area nd Perimeter of Square");
-        calculateArea();
-        calculatePerimeter();
+        System.out.println("Area: " + calculateArea());
+        System.out.println("Perimeter: " + calculatePerimeter());
     }
 }

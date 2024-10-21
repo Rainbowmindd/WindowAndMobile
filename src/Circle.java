@@ -17,9 +17,8 @@ public class Circle extends Figure implements Printing{
 
     @Override
     public void print() {
-        System.out.println("Area and Perimeter of Circle");
-        calculateArea();
-        calculatePerimeter();
+        System.out.println("Area: " + calculateArea());
+        System.out.println("Perimeter: " + calculatePerimeter());
 
     }
 }

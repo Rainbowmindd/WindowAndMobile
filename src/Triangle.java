@@ -1,40 +1,50 @@
-public class Triangle extends Figure implements Printing{
+public class Triangle extends Figure implements Printing {
 
-    double a,b,c;
-    double p =0;
+    private double a, b, c;
+    private double p = 0;
 
-    Triangle(double a1,double b1,double c1){
-       a=a1;
-       b=b1;
-       c=c1;
-
+    Triangle(double a1, double b1, double c1) {
+        a = a1;
+        b = b1;
+        c = c1;
     }
+
     @Override
     public double calculateArea() {
-        //  System.out.println("Calculated Area for Triangle");
-        p=0.5*(a+b+c);
-        if(a+b>c || a+c>b || b+c>a) return Math.sqrt(p * (p - a) * (p - b) * (p - c));
-        else{
-            System.out.println("Nieprawidlowo podane dlugosci bokow trojkata");
+        p = 0.5 * (a + b + c);
+
+        if (isValidTriangle()) {
+            return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        } else {
+          //  System.out.println("Error: Invalid triangle sides.");
+            return -1;
         }
-        return 0;
     }
 
     @Override
     public double calculatePerimeter() {
-
-        if(a+b>c || a+c>b || b+c>a){
-            return a+b+c;
-//            System.out.println("Calculated Perimeter for Triangle");
-//            System.out.println(a+b+c);
+        if (isValidTriangle()) {
+            return a + b + c;
+        } else {
+          //  System.out.println("INVALID VALUES");
+            return -1;
         }
-        return 0;
+    }
+
+    private boolean isValidTriangle() {
+        return (a + b > c) && (a + c > b) && (b + c > a);
     }
 
     @Override
     public void print() {
-        System.out.println("Area nd Perimeter of Triangle");
-        calculateArea();
-        calculatePerimeter();
+        double area = calculateArea();
+        double perimeter = calculatePerimeter();
+
+        if (area >= 0 && perimeter >= 0) {
+            System.out.println("Area: " + area);
+            System.out.println("Perimeter: " + perimeter);
+        } else {
+            System.out.println("Cannot calculate area and perimeter. Please enter VALID VALUES");
+        }
     }
 }
