@@ -1,6 +1,6 @@
 public class ThreeDim extends Figure implements Printing{
-    private Figure base;
-    private double h;
+    private final Figure base;
+    private final double h;
 
     public ThreeDim(Figure base, double h){
         this.base=base;

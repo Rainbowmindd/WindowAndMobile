@@ -14,6 +14,8 @@ public class Main {
             System.out.println("2: Triangle");
             System.out.println("3: Circle");
             System.out.println("4: ThreeDim");
+            System.out.println("5: Exit Program");
+
 
             String figura = scanner.nextLine();
 
@@ -78,6 +80,10 @@ public class Main {
                         threeDim.print();
                     }
                     break;
+
+                case "5":
+                    System.out.println("Exiting...");
+                    System.exit(0);
                 default:
                     System.out.println("Choose the figure AGAIN. ");
                     break;
@@ -93,3 +99,4 @@ public class Main {
             System.out.println("##################END##################");
     }
 }
+

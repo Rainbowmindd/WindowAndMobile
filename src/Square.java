@@ -11,14 +11,30 @@ public class Square extends Figure implements Printing{
 
     @Override
      public double  calculateArea() {
-        return a*a;
+        if(isValidValue()){
+            return a*a;
+        }
+        else{
+            System.out.println("INVALID VALUES");
+            return -1;
+        }
     }
 
     @Override
-    public double calculatePerimeter() {;
-        return 4*a;
+    public double calculatePerimeter() {
+        if(isValidValue()){
+            return 4*a;
+        }
+        else{
+            System.out.println("INVALID VALUES");
+            return -1;
+        }
+
     }
 
+    private boolean isValidValue(){
+        return a>0;
+    }
     @Override
     public void print() {
         System.out.println("Area: " + calculateArea());
